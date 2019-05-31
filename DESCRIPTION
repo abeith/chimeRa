@@ -1,0 +1,25 @@
+Package: chimeRa
+Title: Create Auditory Chimeras with R
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Alistair",
+           family = "Beith",
+           role = c("cre", "trl"),
+           email = "alistair.beith@gmail.com")
+Description: R translation of the Chimera Toolbox for MATLAB by Bertrand Delgutte. Allows fine detail of one auditory signal to be crossed with the envelope of another.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
+Imports: 
+    pracma,
+    seewave,
+    tuneR,
+    magrittr,
+    purrr,
+    dplyr,
+    signal,
+    graphics
+URL: https://github.com/abeith/chimeRa
+BugReports: https://github.com/abeith/chimeRa/issues
