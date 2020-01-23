@@ -30,7 +30,21 @@ extract_envelope <- function(x, f = 1, cutoffs, complex = FALSE){
   # filter signals
   zfilt <- purrr::map(b, signal::fftfilt, x = x)
 
-  if(complex == TRUE){
+  # if(refilter){
+  #
+  #   x <- purrr::map2(zfilt, zfilt, cross_filters)
+  #
+  #   filt_back <- function(filt_bank, signal){
+  #     signal_rev <- rev(signal)
+  #     signal_filt <- signal::fftfilt(Re(filt_bank), signal_rev)
+  #     rev(signal_rev)
+  #   }
+  #
+  #   zfilt <- purrr::map2(b, x, filt_back)
+  #
+  # }
+
+  if(complex){
     return(zfilt)
   }else{
     # get envelope

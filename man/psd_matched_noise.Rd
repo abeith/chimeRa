@@ -7,10 +7,12 @@
 Translated from MATLAB code in Smith, Delgutte & Oxenham (2002).
 }
 \usage{
-psd_matched_noise(x)
+psd_matched_noise(x, dur = NULL)
 }
 \arguments{
 \item{x}{A vector of a sound wave or an object of class "Wave"}
+
+\item{dur}{Duration of noise to be created. If NULL, will be length(x)}
 }
 \value{
 Returns a vector of equal length or an object of class "Wave".

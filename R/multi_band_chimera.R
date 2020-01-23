@@ -69,8 +69,8 @@ multi_band_chimera <- function(x1, x2, f = 1, cutoffs, fb = NULL, refilter = 0){
       rev(signal_rev)
     }
 
-    e1_fs2 <- purrr::map(b, filt_back, e1_fs2)
-    e2_fs1 <- purrr::map(b, filt_back, e2_fs1)
+    e1_fs2 <- purrr::map2(b, e1_fs2, filt_back)
+    e2_fs1 <- purrr::map2(b, e2_fs1, filt_back)
   }
 
   # add bands together

@@ -4,6 +4,7 @@
 #' X. Done by randomizing phase of Fourier spectrum.
 #'
 #' @param x A vector of a sound wave or an object of class "Wave"
+#' @param dur Duration of noise to be created. If NULL, will be length(x)
 #' @return Returns a vector of equal length or an object of class "Wave".
 #'
 #' Copyright Bertrand Delgutte, 1999-2000
@@ -13,15 +14,20 @@
 #' @importFrom stats fft runif
 #' @export
 
-psd_matched_noise <- function(x){
+psd_matched_noise <- function(x, dur = NULL){
 
-  make_noise <- function(signal){
+  if(is.null(dur)) dur <- length(x)
+
+  make_noise <- function(signal, duration = dur){
+    n <- length(signal)
     fft_x <- abs(fft(signal))
-    noise <- exp(1i*2*pi*runif(length(signal)))
+    noise <- exp(1i*2*pi*runif(n))
 
-    n <- Re(pracma::ifft(fft_x * noise))
+    out_sig <- Re(pracma::ifft(fft_x * noise))
 
-    return(n)
+    out_sig <- out_sig[1:duration]
+
+    return(out_sig)
   }
 
   if(class(x) == "Wave"){

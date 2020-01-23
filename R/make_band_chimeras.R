@@ -49,7 +49,7 @@ make_band_chimeras <- function(x1, x2 = "noise", f = 1, n_bands = c(1, 8, 32), s
     if(x2 == "noise"){
       x2_name = "noise"
       x2 <- psd_matched_noise(x1)
-      x2 <- tuneR::normalize(x2, unit = as.character(bitrate))
+      #x2 <- tuneR::normalize(x2, unit = as.character(bitrate))
     }
   }else{
     x2_name <- deparse(substitute(x2))

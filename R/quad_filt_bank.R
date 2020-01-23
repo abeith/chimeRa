@@ -24,12 +24,14 @@ quad_filt_bank <- function(cutoffs, f = 1, N = NULL){
     stop("Sample frequency must be a single whole number")
   }
 
-  w <- 2 * cutoffs / f # Matlab normalized frequency
+  w <- 2 * cutoffs / f # Normalized frequency bands: 0 < w < 1
   if (is.null(N)){
     N <- round(8/min(diff(w)))
 
-    # Make even (should this be the opposite?)
-    if (N %% 2 != 1){
+    # N%%2 == 1 if odd and 0 if even
+    # Matlab code says this is to make sure N is even, but code was N%%2 != 1
+    # was code wrong or comment wrong?
+    if (N%%2 != 1){
       N <- N + 1
     }
   }

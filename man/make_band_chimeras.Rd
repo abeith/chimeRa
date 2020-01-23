@@ -7,9 +7,17 @@
 Translated from MATLAB code in Smith, Delgutte & Oxenham (2002).
 }
 \usage{
-make_band_chimeras(x1, x2 = "noise", f = 1, n_bands = c(1, 8, 32),
-  savepath = ".", bitrate = 16, refilter = FALSE,
-  save_waves = TRUE, do_plot = FALSE)
+make_band_chimeras(
+  x1,
+  x2 = "noise",
+  f = 1,
+  n_bands = c(1, 8, 32),
+  savepath = ".",
+  bitrate = 16,
+  refilter = FALSE,
+  save_waves = TRUE,
+  do_plot = FALSE
+)
 }
 \arguments{
 \item{x1, x2}{original signals. Can be a numeric vector or object of class "Wave"}
