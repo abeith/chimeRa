@@ -104,8 +104,8 @@ make_band_chimeras <- function(x1, x2 = "noise", f = 1, n_bands = c(1, 8, 32), s
     }
 
     # Create Wave objects
-    chim1_wave <- tuneR::Wave(left = chimeras[[1]], right = chimeras[[1]], samp.rate = f, bit = bitrate)
-    chim2_wave <- tuneR::Wave(left = chimeras[[2]], right = chimeras[[2]], samp.rate = f, bit = bitrate)
+    chim1_wave <- tuneR::Wave(left = chimeras[[1]], samp.rate = f, bit = bitrate)
+    chim2_wave <- tuneR::Wave(left = chimeras[[2]], samp.rate = f, bit = bitrate)
 
     # Normalize signal
     chim1_wave <- tuneR::normalize(chim1_wave, unit = as.character(bitrate))
